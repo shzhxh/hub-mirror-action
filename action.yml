@@ -10,7 +10,6 @@ inputs:
     required: true
   dst_token:
     description: "The app token which is used to  create repo in destination hub."
-    required: true
   dst:
     description: "Destination name. Such as `gitee/kunpengcompute`."
     required: true

@@ -35,7 +35,10 @@ class Hub(object):
             self.src_repo_base = prefix + 'github.com' + suffix
         self.src_repo_base = self.src_repo_base + self.src_account
         # TODO: toekn push support
-        prefix = "git@" + self.dst_type + ".com:"
+        if self.dst_type == "github" or self.dst_type == "gitee":
+            prefix = "git@" + self.dst_type + ".com:"
+        elif self.dst_type == "gitlink":
+            prefix = "git@code." + self.dst_type + ".org.cn:"
         self.dst_repo_base = prefix + self.dst_account
 
     def has_dst_repo(self, repo_name):

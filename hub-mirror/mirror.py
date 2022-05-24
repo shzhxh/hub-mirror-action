@@ -59,7 +59,10 @@ class Mirror(object):
 
     def create(self):
         print("(2/3) Creating...")
-        self.hub.create_dst_repo(self.dst_name)
+        if self.hub.dst_type == "gitlink":
+            print("    gitlink, temporary ignore.")
+        else:
+            self.hub.create_dst_repo(self.dst_name)
 
     def _check_empty(self, repo):
         cmd = ["-n", "1", "--all"]
